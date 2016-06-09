@@ -1,0 +1,52 @@
+Discovering resources
+\begin{verbatim}
+disco cluster_name
+disco site1 site2
+\end{verbatim}
+
+Jobs Grid stats
+\begin{verbatim}
+oargridstat
+oargridstat GRID_JOB_ID
+\end{verbatim}
+
+Submission : Interactive
+\begin{verbatim}
+oargridsub -t allow_classic_ssh \
+  -w '0:20:00'CLUSTER1:rdef="/nodes=2",CLUSTER2:rdef="/nodes=3"
+\end{verbatim}
+
+Create a node file
+\begin{verbatim}
+oargridstat -w -l GRID_JOB_ID | sed '/^\$/d' > ~/nodes
+\end{verbatim}
+
+Distribute node file
+\begin{verbatim}
+OAR_JOB_ID=CLUSTER_JOB_ID oarcp -i \
+  /tmp/oargrid/oargrid_ssh_key_LOGIN_GRID_JOB_ID~/machines \
+  `head -n 1 machines`:
+\end{verbatim}
+
+Connect on first node
+\begin{verbatim}
+OAR_JOB_ID=CLUSTER_JOB_ID oarsh -i \
+  /tmp/oargrid/oargrid_ssh_key_LOGIN_GRID_JOB_ID ` head -n 1 machines`
+\end{verbatim}
+
+Ending
+\begin{verbatim}
+oargriddel GRID_JOB_ID
+\end{verbatim}
+
+Submission : Reservation (passive mode)
+\begin{verbatim}
+oargridsub -t allow_classic_ssh CLUSTER1:rdef="/nodes=1",\
+  CLUSTER2:rdef="/nodes=4" -s '2011-05-16 14:20:00'\
+  -w '0:10:00' -p /prog42/helloworld
+\end{verbatim}
+
+View results
+\begin{verbatim}
+tail -f OAR.CLUSTER_JOB_ID.std{err,out}
+\end{verbatim}

@@ -1,0 +1,184 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Jacobs Landscape Poster
+% LaTeX Template
+% Version 1.0 (29/03/13)
+%
+% Created by:
+% Computational Physics and Biophysics Group, Jacobs University
+% https://teamwork.jacobs-university.de:8443/confluence/display/CoPandBiG/LaTeX+Poster
+% 
+% Further modified by:
+% Nathaniel Johnston (nathaniel@njohnston.ca)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[final]{beamer}
+
+\usepackage[scale=0.73]{beamerposter} % Use the beamerposter package for laying out the poster
+
+\usetheme{confposter} % Use the confposter theme supplied with this template
+
+\setbeamercolor{block title}{fg=ngreen,bg=white} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
+\setbeamercolor{block alerted title}{fg=black,bg=dgreen!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=dgreen!5} % Colors of the body of highlighted blocks
+% Many more colors are available for use in beamerthemeconfposter.sty
+
+%-----------------------------------------------------------
+% Define the column widths and overall poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% In this template, the separation width chosen is 0.024 of the paper width and a 4-column layout
+% onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g. (1-(4+1)*0.024)/4 = 0.22
+% Set twocolwid to be (2*onecolwid)+sepwid = 0.464
+% Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\paperwidth}{48in} % A0 width: 46.8in
+\setlength{\paperheight}{36in} % A0 height: 33.1in
+\setlength{\sepwid}{0.01\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.32\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.32\paperwidth} % Width of two columns
+\setlength{\threecolwid}{0.32\paperwidth} % Width of three columns
+\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+%-----------------------------------------------------------
+
+\usepackage{graphicx}  % Required for including images
+\usepackage{verbatim}
+\usepackage{booktabs} % Top and bottom rules for tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\title{Cheat Sheet} % Poster title
+
+\author{v0.9.5 -- 2015/07/01} % Author(s)
+
+\institute{\url{http://grid5000.fr/}} % Institution(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+
+\setlength{\belowcaptionskip}{2ex} % White space under figures
+\setlength\belowdisplayshortskip{2ex} % White space under equations
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+\begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The first column
+
+%----------------------------------------------------------------------------------------
+%	[[Cluster_experiment]]     [[Advanced_OAR]]
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{[[Cluster\_experiment]]     [[Advanced\_OAR]]}
+\include{advanced_oar}
+\end{alertblock}
+
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	Oar Grid     [[Grid_experiment]]
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{Oar Grid [[Grid\_experiment]]}
+\include{oar_grid}
+\end{alertblock}
+
+%------------------------------------------------
+
+\end{column} % End of the first column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\twocolwid} % Begin a column which is two columns wide (column 2)
+
+\setbeamercolor{block alerted title}{fg=black,bg=norange} % Change the alert block title colors
+\setbeamercolor{block alerted body}{fg=black,bg=norange!5} % Change the alert block body colors
+
+%----------------------------------------------------------------------------------------
+%	Hardware Overview     [[Special:G5KHardware]]
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{Hardware Overview [[Special:G5KHardware]]}
+\include{hardware_overview}
+\end{alertblock}
+
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	API     [[API_Main_Pratical]] [[API]]
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{API [[API\_Main\_Pratical]] [[API]]}
+\include{api}
+\end{alertblock}
+
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	KaVLAN     [[Kavlan]]
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{KaVLAN [[Kavlan]]}
+\include{kavlan}
+\end{alertblock}
+
+%------------------------------------------------
+
+\end{column} % End of the second column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+
+%----------------------------------------------------------------------------------------
+%	[[Deploy_environment-OAR2]] [[Advanced_Kadeploy]]
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{[[Deploy\_environment-OAR2]] [[Advanced\_Kadeploy]]}
+\include{kadeploy}
+\end{alertblock}
+
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	Links
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{Links}
+\include{links}
+\end{alertblock}
+
+%------------------------------------------------
+
+* With electrical consumption.
+See \url{https://helpdesk.grid5000.fr/supervision/lyon/wattmetre/}
+
+\end{column} % End of the third column
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame} % End of the enclosing frame
+
+\end{document}
