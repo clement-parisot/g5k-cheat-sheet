@@ -1,59 +1,59 @@
 Locate a suitable image
-\begin{verbatim}
+\begin{lstlisting}
 kaenv3 -l
 kaenv3 -l -u LOGIN
 kaenv3 -p wheezy-x64-min -u deploy
-\end{verbatim}
+\end{lstlisting}
 
 Use deploy type for your job
-\begin{verbatim}
+\begin{lstlisting}
 oarsub -I -t deploy -l nodes=2
 cat $OAR_NODEFILE
-\end{verbatim}
+\end{lstlisting}
 
 Deploy an environment
-\begin{verbatim}
+\begin{lstlisting}
 kadeploy3 -e wheezy-x64-base -m node.site.grid5000.fr -k
 kadeploy3 -e wheezy-x64-base -f $OAR_NODEFILE -k ssh_key.pub
-\end{verbatim}
+\end{lstlisting}
 
 Save your deployed environment with tgz-g5k
 (available on gforge, or installed on environments)
-\begin{verbatim}
+\begin{lstlisting}
 tgz-g5k login@frontend:image.tgz (from node)
 ssh root@node tgz-g5k > image.tgz (from frontend)
-\end{verbatim}
+\end{lstlisting}
 
 Connection to the deployed environment
-\begin{verbatim}
+\begin{lstlisting}
 ssh root@node.site.grid5000.fr (password "grid5000")
-\end{verbatim}
+\end{lstlisting}
 with console (useful if network doesn't work)
-\begin{verbatim}
+\begin{lstlisting}
 kaconsole -m node.site.grid5000.fr
-\end{verbatim}
+\end{lstlisting}
 
 Deploy and save your environment
 Generate a desciption file
-\begin{verbatim}
+\begin{lstlisting}
 kaenv3 -p wheezy-x64-base -u deploy > image.env
-\end{verbatim}
+\end{lstlisting}
 (edit file image.env to update with your values)
 Deploy
-\begin{verbatim}
+\begin{lstlisting}
 kadeploy3 -f $OAR_NODEFILE -a image.env
-\end{verbatim}
+\end{lstlisting}
 Save your image
-\begin{verbatim}
+\begin{lstlisting}
 kaenv3 -a image.env
-\end{verbatim}
+\end{lstlisting}
 
 Multi-sites deployment
-\begin{verbatim}
+\begin{lstlisting}
 kadeploy3 -e wheezy-x64-base -f ~/gridnodes --multi-server -k
-\end{verbatim}
+\end{lstlisting}
 Easy use with public share
-\begin{verbatim}
+\begin{lstlisting}
 kadeploy3 -f $OAR_NODEFILE\
 -f http://public.nancy.grid5000.fr/~login/image.env -k
-\end{verbatim}
+\end{lstlisting}

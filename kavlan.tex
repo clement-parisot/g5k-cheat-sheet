@@ -1,23 +1,23 @@
 Submission
-\begin{verbatim}
+\begin{lstlisting}
 oarsub -t deploy -l {"type='kavlan'"}/vlan=1+nodes=2\
 walltime=2 -I
-\end{verbatim}
+\end{lstlisting}
 
 Deploy
-\begin{verbatim}
+\begin{lstlisting}
 kadeploy3 -f $OAR_NODEFILE -e env -k --vlan `kavlan -V`
-\end{verbatim}
+\end{lstlisting}
 
 Find out in which vlan is a node
-\begin{verbatim}
+\begin{lstlisting}
 kavlan -g -m node.fqdn.fr
-\end{verbatim}
+\end{lstlisting}
 
 List nodes (kavlan fqdn of a reservation)
-\begin{verbatim}
+\begin{lstlisting}
 kavlan -l -j jobid
-\end{verbatim}
+\end{lstlisting}
 
 Resources
 \begin{description}

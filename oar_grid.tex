@@ -1,52 +1,52 @@
 Discovering resources
-\begin{verbatim}
+\begin{lstlisting}
 disco cluster_name
 disco site1 site2
-\end{verbatim}
+\end{lstlisting}
 
 Jobs Grid stats
-\begin{verbatim}
+\begin{lstlisting}
 oargridstat
 oargridstat GRID_JOB_ID
-\end{verbatim}
+\end{lstlisting}
 
 Submission : Interactive
-\begin{verbatim}
+\begin{lstlisting}
 oargridsub -t allow_classic_ssh \
   -w '0:20:00'CLUSTER1:rdef="/nodes=2",CLUSTER2:rdef="/nodes=3"
-\end{verbatim}
+\end{lstlisting}
 
 Create a node file
-\begin{verbatim}
+\begin{lstlisting}
 oargridstat -w -l GRID_JOB_ID | sed '/^\$/d' > ~/nodes
-\end{verbatim}
+\end{lstlisting}
 
 Distribute node file
-\begin{verbatim}
+\begin{lstlisting}
 OAR_JOB_ID=CLUSTER_JOB_ID oarcp -i \
   /tmp/oargrid/oargrid_ssh_key_LOGIN_GRID_JOB_ID~/machines \
   `head -n 1 machines`:
-\end{verbatim}
+\end{lstlisting}
 
 Connect on first node
-\begin{verbatim}
+\begin{lstlisting}
 OAR_JOB_ID=CLUSTER_JOB_ID oarsh -i \
   /tmp/oargrid/oargrid_ssh_key_LOGIN_GRID_JOB_ID ` head -n 1 machines`
-\end{verbatim}
+\end{lstlisting}
 
 Ending
-\begin{verbatim}
+\begin{lstlisting}
 oargriddel GRID_JOB_ID
-\end{verbatim}
+\end{lstlisting}
 
 Submission : Reservation (passive mode)
-\begin{verbatim}
+\begin{lstlisting}
 oargridsub -t allow_classic_ssh CLUSTER1:rdef="/nodes=1",\
   CLUSTER2:rdef="/nodes=4" -s '2011-05-16 14:20:00'\
   -w '0:10:00' -p /prog42/helloworld
-\end{verbatim}
+\end{lstlisting}
 
 View results
-\begin{verbatim}
+\begin{lstlisting}
 tail -f OAR.CLUSTER_JOB_ID.std{err,out}
-\end{verbatim}
+\end{lstlisting}
