@@ -3,12 +3,14 @@ Discovering resources
 disco cluster_name
 disco site1 site2
 \end{lstlisting}
+\makeruleinbox
 
 Jobs Grid stats
 \begin{lstlisting}
 oargridstat
 oargridstat GRID_JOB_ID
 \end{lstlisting}
+\makeruleinbox
 
 Submission : Interactive
 \begin{lstlisting}
@@ -33,6 +35,7 @@ Connect on first node
 OAR_JOB_ID=CLUSTER_JOB_ID oarsh -i \
   /tmp/oargrid/oargrid_ssh_key_LOGIN_GRID_JOB_ID ` head -n 1 machines`
 \end{lstlisting}
+\makeruleinbox
 
 Ending
 \begin{lstlisting}
