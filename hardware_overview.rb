@@ -3,7 +3,7 @@
 
 root.sites.each do |site| 
   begin
-    puts "#{site["uid"].capitalize} &  &  &  &  &  &  \\\\"
+    puts "\\textbf{#{site["uid"].capitalize}} &  &  &  &  &  &  \\\\"
     site.clusters.each do |cluster|
       date = cluster["created_at"].split(" ")[3]
       cluster_size = cluster.nodes.length
