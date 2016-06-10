@@ -3,7 +3,7 @@
 
 root.sites.each do |site| 
   begin
-    puts "\\textbf{#{site["uid"].capitalize}} &  &  &  &  &  &  \\\\"
+    puts "\\textbf{#{site["uid"].capitalize}} &  &  &  &  &  &  &  &  \\\\"
     site.clusters.each do |cluster|
       date = cluster["created_at"].split(" ")[3]
       cluster_size = cluster.nodes.length
@@ -71,7 +71,7 @@ root.sites.each do |site|
       if gpu_count.to_i >= 1
         gpu = "#{gpu_count}x#{gpu_model}"
       end
-      puts "#{cluster["uid"]} (#{date}) & #{cluster_size} & #{nb_cpu}x#{nb_core}cores @#{cpu_speed}Ghz & #{memory}Gb & #{cluster_storages} & #{gpu} & #{ib}#{eth10g} \\\\"
+      puts "#{cluster["uid"]} & (#{date}) & #{cluster_size} & #{nb_cpu}x#{nb_core}cores & @#{cpu_speed}Ghz & #{memory}Gb & #{cluster_storages} & #{gpu} & #{ib}#{eth10g} \\\\"
     end
   rescue Restfully::HTTP::ServerError => e
     puts "Could not access information from #{site["uid"]}"
