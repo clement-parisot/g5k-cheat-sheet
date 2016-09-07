@@ -26,9 +26,9 @@ root.sites.each do |site|
           s.each { |v| sizes.store(v, sizes[v]+1) }
           sizes.each do |size, nb|
             if nb > 1
-              cluster_storages += " #{nb}x#{size}GB #{t},"
+              cluster_storages += " #{nb}x#{size}Gb #{t},"
             else
-              cluster_storages += " #{size}GB #{t},"
+              cluster_storages += " #{size}Gb #{t},"
             end
           end # each size
         end # each storage
