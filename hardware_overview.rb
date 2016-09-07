@@ -9,8 +9,8 @@ root.sites.each do |site|
       cluster_size = cluster.nodes.length
       node = cluster.nodes[0]
       arch = node["architecture"]
-      nb_cpu = arch["smp_size"]
-      nb_core = arch["smt_size"]/nb_cpu
+      nb_cpu = arch["nb_procs"]
+      nb_core = arch["nb_cores"]/nb_cpu
       cpu_type = arch["platform_type"]
       cpu_speed = node["processor"]["clock_speed"].to_i/(10E8)
       memory = (node["main_memory"]["ram_size"].to_i.to_f / (1024**3).to_f).round
