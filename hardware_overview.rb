@@ -1,6 +1,12 @@
 # (c) 2012-2016 Inria by David Margery (david.margery@inria.fr) in the context of the Grid'5000 project
 # Licenced under the CeCILL B licence.
 
+puts "\\begin{center}"
+puts "\\begin{tabular}{|lr|r|rl|r|c|c|c|}"
+puts "\\hline"
+puts "  & & \\textbf{Nodes} & \\textbf{Cpu Intel}&\\textbf{| AMD} & \\textbf{Memory} & \\textbf{Disks} & \\textbf{GPU} & \\textbf{Network} \\\\ "
+puts "\\hline"
+
 root.sites.each do |site| 
   begin
     puts "\\textbf{#{site["uid"].capitalize}} &  &  &  &  &  &  &  &  \\\\"
@@ -77,4 +83,8 @@ root.sites.each do |site|
     puts "Could not access information from #{site["uid"]}"
   end
 end
+
+puts '\\hline '
+puts '\\end{tabular}'
+puts "\\end{center}\n"
 
